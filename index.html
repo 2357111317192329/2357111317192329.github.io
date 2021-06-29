@@ -1,9 +1,72 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<iframe src="https://www.greenfoot.org/scenarios/28272?embed=true"width="920" height="625"></iframe>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body style="margin: 0;">
+    
+<div class="applet_div">
+    <script type="text/javascript" charset="utf-8" src="https://www.greenfoot.org/scenarios/28272?embed=true/javascript_attachments/0018/1652/scenario28272.js"></script>
+    <script type="text/javascript" charset="utf-8" src="https://www.greenfoot.org/scenarios/28272?embed=true/javascript/jszip.min.js"></script>
+    <script type="text/javascript" defer="yes">
+      function pre_main() {
+          storage_params = [];
+          storage_params["storage.standalone"] = true;
+          storage_params["storage.passcode"] = "CC84B9BA6598B871";
+          storage_params["storage.scenarioId"] = 28272;
+          storage_params["storage.userId"] = 59793;
+          storage_params["storage.userName"] = "23571113";
+      
+          var appletFile="https://www.greenfoot.org/scenarios/28272?embed=true/applet_attachments/0005/8481/greenfoot8423919336663412059.jar";
+          
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", appletFile);
+          xhr.responseType = "arraybuffer";
+          xhr.onload = function() {
+              JSZip.loadAsync(xhr.response).then(function (zip) {
+                  window.zip = zip;
+                  main();
+                  // Wait half a second for initialisation to complete before starting:
+                  window.setTimeout(function() {
+                  	runButton = document.getElementById("playButton");
+                  	// Only simulate run click if scenario not auto-started:
+                  	if (runButton.textContent == "Run") {
+                  	  runButton.click();
+                  	}
+                  }, 500);
+              });
+          };
+          
+          xhr.onerror = function() {
+              // ??
+              alert("Failed to load applet.");
+          };
+          
+          xhr.send();
+      }
+      pre_main();
+    </script>
+    <div style="display: inline-block;">
+      <div>
+        <div style="width: 100%;">
+          <!-- enclosing div for Greenfoot.ask() panel: -->
+          <div style="display: inline-block; touch-action: pinch-zoom;">
+             <canvas id="scenarioCanvas" width="912" height="662">
+                Your browser does not support the canvas tag.
+             </canvas>
+          </div>
+        </div>
+      </div>
+    
+      <!-- controls are present but invisible in fullscreen/embedded mode: -->
+      <div style="visibility: hidden;">
+        <button disabled="true" id="playButton" style="width: 5em;">Run</button>
+        <button disabled="true" id="resetButton" style="width: 5em;">Reset</button>
+        <input type="range" id="speedSlider" min=0 max=99 disabled="true" style="vertical-align: middle;"></input>
+      </div>
+    </div>
+</div>
+
+  </body>
+</html>
