@@ -11,7 +11,7 @@
   <button onclick="checkInput()">提交</button>
   <p id="result"></p>
 <h4>測試顯示圖片</h4>
-  <img src="Logo_of_Twitter.png" alt="圖片">
+  <img src="output5.png" alt="圖片">
 <script>
 var lastupdate;
 function getRandomInt(min, max) {
@@ -31,6 +31,52 @@ function checkInput() {
     document.getElementById("result").innerHTML = "你是機器人";
   }
 }
+const cv2 = require('cv2');
+const random = require('random');
+const os = require('os');
+
+// Create an empty image with dimensions 102x102 and 3 channels
+const img4 = new cv2.Mat(102, 102, cv2.CV_8UC3, new cv2.Scalar(0, 0, 0));
+
+// Read input image
+const img2 = cv2.imread('Logo_of_Twitter.png');
+
+// Iterate over each pixel in the image
+for (let i = 0; i < 102; i++) {
+    for (let j = 0; j < 102; j++) {
+        if (i === 0 || j === 0 || i === 101 || j === 101) {
+            // Generate a random number between 0 and 255
+            const num = random.int(0, 255);
+
+            // Set the pixel values in img4 to the random number
+            img4.set(i, j, [num, num, num]);
+        } else {
+            // Copy the pixel values from img2 to img4
+            const pixel = img2.at(i - 1, j - 1);
+            img4.set(i, j, pixel);
+        }
+    }
+}
+
+// Apply a filter to the image
+for (let i = 0; i < 100; i++) {
+    for (let j = 0; j < 100; j++) {
+        // Calculate the average of the surrounding pixels
+        const m = Math.floor((img4.at(i, j)[0] + img4.at(i + 1, j)[0] + img4.at(i + 2, j)[0] + img4.at(i, j + 1)[0] + img4.at(i + 2, j + 1)[0] + img4.at(i, j + 2)[0] + img4.at(i + 1, j + 2)[0] + img4.at(i + 2, j + 2)[0]) / 8);
+
+        // Generate a random number between m-151 and m+151
+        const num = random.int(Math.max(m - 151, 0), Math.min(m + 151, 255));
+
+        // Set the pixel values in img4 to the random number
+        img4.set(i + 1, j + 1, [num, num, num]);
+    }
+}
+
+// Crop the image
+const img = img4.roi(new cv2.Rect(1, 1, 100, 100));
+
+// Save the output image
+cv2.imwrite('output5.png', img);
 lastupdate=document.lastModified
 document.write("本網頁最後修改時間為：" + lastupdate)
 </script>
