@@ -43,9 +43,9 @@ window.onload = function() {
     var delr=getRandomInt(-100, 100);
     var delg=getRandomInt(-100, 100);
     var delb=getRandomInt(-100, 100);
-    data[i] = Math.max(0, dta[i] + delr);  
-    data[i + 1] = Math.max(0, dta[i + 1] + delg);
-    data[i + 2] = Math.max(0, dta[i + 2] + delb);
+    dta[i] = Math.max(0, dta[i] + delr);  
+    dta[i + 1] = Math.max(0, dta[i + 1] + delg);
+    dta[i + 2] = Math.max(0, dta[i + 2] + delb);
   }
   ctx.putImageData(ia, 0, 0);
 }
