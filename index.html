@@ -34,6 +34,7 @@ window.onload = function() {
   }
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var data = imageData.data;
+  console.log(data);
   var r=100
   for (var i = 0; i < data.length; i += 4) {
     data[i] = Math.max(0, data[i] + getRandomInt(-r, r));  
