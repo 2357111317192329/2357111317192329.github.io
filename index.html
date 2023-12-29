@@ -12,7 +12,7 @@
   <button onclick="checkInput()">提交</button>
   <p id="result"></p>
 <h4>測試顯示圖片</h4>
-  <img src="Logo_of_Twitter.png" alt="圖片">
+  <img src="Logo_of_Twiter.png" alt="圖片">
 <script>
 var lastupdate;
 function getRandomInt(min, max) {
@@ -25,7 +25,7 @@ randomNumber = ("0000" + randomNumber).slice(-4);
 window.onload = function() {
   var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
-  ctx.font = "50px Arial";
+  ctx.font = "30px Arial";
   ctx.textAlign = "center"; 
   ctx.textBaseline = "middle";
   for (var i = 0; i < 4; i++) {
@@ -36,9 +36,13 @@ window.onload = function() {
   var data = imageData.data;
   var r=100
   for (var i = 0; i < data.length; i += 4) {
-    data[i] = Math.max(0, data[i] + getRandomInt(-100, 100));  
-    data[i + 1] = Math.max(0, data[i + 1] + getRandomInt(-r, r));
-    data[i + 2] = Math.max(0, data[i + 2] + getRandomInt(-r, r));
+    var delr=getRandomInt(-100, 100);
+    var delg=getRandomInt(-100, 100);
+    var delb=getRandomInt(-100, 100);
+    data[i] = Math.max(0, data[i] + delr);  
+    data[i + 1] = Math.max(0, data[i + 1] + delg);
+    data[i + 2] = Math.max(0, data[i + 2] + delb);
+    console.log(delr);
   }
   ctx.putImageData(imageData, 0, 0);
 }
