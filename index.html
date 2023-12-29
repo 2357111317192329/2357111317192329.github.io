@@ -12,7 +12,7 @@
   <button onclick="checkInput()">提交</button>
   <p id="result"></p>
 <h4>測試顯示圖片</h4>
-  <img src="Logo_of_Twiter.png" alt="圖片">
+  <img src="Logo_of_Twitter.png" alt="圖片">
 <script>
 var lastupdate;
 function getRandomInt(min, max) {
@@ -34,7 +34,7 @@ window.onload = function() {
   }
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var data = imageData.data;
-  var r=20
+  var r=100
   for (var i = 0; i < data.length; i += 4) {
     data[i] = Math.max(0, data[i] + getRandomInt(-r, r));  
     data[i + 1] = Math.max(0, data[i + 1] + getRandomInt(-r, r));
