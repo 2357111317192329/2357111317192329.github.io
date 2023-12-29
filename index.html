@@ -20,6 +20,10 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+function resetcav(ctx,imageData) {
+  ctx.putImageData(imageData, 0, 0);
+  return 0;
+}
 var randomNumber = getRandomInt(0, 9999);
 randomNumber = ("0000" + randomNumber).slice(-4);
 window.onload = function() {
@@ -45,7 +49,7 @@ window.onload = function() {
   }
   console.log(data);
   console.log(imageData);
-  ctx.putImageData(imageData, 0, 0);
+  setTimeout(resetcav, 3000,ctx,imageData);
   var newimageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   console.log(newimageData);
 }
