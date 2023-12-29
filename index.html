@@ -6,7 +6,7 @@
 <p>Simulating bonk.io</p>
 <h2>如果喜歡，歡迎<a href="https://www.paypal.com/paypalme/2357111317192329/1">捐款</a></h2>
 <h3>機器人測試</h3>
-  <p id="randomNumber"></p>
+  <canvas id="myCanvas" width="200" height="200" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
   輸入上述亂數: <input type="text" id="userInput">
   <button onclick="checkInput()">提交</button>
   <p id="result"></p>
@@ -19,10 +19,13 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-var randomNumber = getRandomInt(1, 1000);
-document.getElementById("randomNumber").innerHTML = "亂數是: " + randomNumber;
-
+var randomNumber = getRandomInt(1, 10);
+window.onload = function() {
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  ctx.font = "30px Arial";
+  ctx.fillText(randomNumber, 50, 50);
+}
 function checkInput() {
   var userInput = document.getElementById("userInput").value;
   if (userInput == randomNumber) {
