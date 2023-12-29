@@ -40,11 +40,11 @@ window.onload = function() {
   }
   var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var dta = ia.data;
-  var r=100
+  var r=20
   for (var i = 0; i < dta.length; i += 4) {
-    var delr=getRandomInt(-100, 100);
-    var delg=getRandomInt(-100, 100);
-    var delb=getRandomInt(-100, 100);
+    var delr=getRandomInt(-r, r);
+    var delg=getRandomInt(-r, r);
+    var delb=getRandomInt(-r, r);
     var newr=Math.min(Math.max(0, dta[i] + delr),255)
     var newg=Math.min(Math.max(0, dta[i] + delg),255)
     var newb=Math.min(Math.max(0, dta[i] + delb),255)
