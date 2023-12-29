@@ -29,6 +29,8 @@ randomNumber = ("0000" + randomNumber).slice(-4);
 window.onload = function() {
   var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.font = "30px Arial";
   ctx.textAlign = "center"; 
   ctx.textBaseline = "middle";
