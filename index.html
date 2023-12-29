@@ -20,12 +20,15 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-var randomNumber = getRandomInt(1, 1000);
+var randomNumber = getRandomInt(0, 9999);
+randomNumber = ("0000" + randomNumber).slice(-4);
 window.onload = function() {
   var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
   ctx.font = "30px Arial";
-  ctx.fillText(randomNumber, 50, 50);
+  ctx.textAlign = "center"; 
+  ctx.textBaseline = "middle";
+  ctx.fillText(randomNumber, canvas.width / 2, canvas.height / 2);
 }
 function checkInput() {
   var userInput = document.getElementById("userInput").value;
