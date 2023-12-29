@@ -28,7 +28,10 @@ window.onload = function() {
   ctx.font = "50px Arial";
   ctx.textAlign = "center"; 
   ctx.textBaseline = "middle";
-  ctx.fillText(randomNumber, canvas.width / 2, canvas.height / 2);
+  for (var i = 0; i < 4; i++) {
+    var x = 25 + i * 50; 
+    ctx.fillText(randomNumber[i], x, canvas.height / 2);
+  }
 }
 function checkInput() {
   var userInput = document.getElementById("userInput").value;
