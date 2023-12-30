@@ -84,7 +84,7 @@
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
       var numSpaghetti = 60;
-      ctx.strokeStyle = getContrastColor(myColor);
+      //ctx.strokeStyle = getContrastColor(myColor);
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
@@ -92,7 +92,7 @@
         var endY = y + (Math.random() - 0.5) * 30;
         ctx.beginPath();
         ctx.moveTo(x, y);
-        //ctx.strokeStyle = getRandomColor();
+        ctx.strokeStyle = getRandomColor();
         ctx.lineTo(endX, endY);
         ctx.stroke();
       }
