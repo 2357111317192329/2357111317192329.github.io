@@ -84,6 +84,7 @@
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
       var numSpaghetti = 60;
+      ctx.fillStyle = getContrastColor(myColor);
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
