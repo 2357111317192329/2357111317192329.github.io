@@ -90,7 +90,7 @@
       ctx.textBaseline = "middle";
       for (var i = 0; i < 4; i++) {
         var x = 40 + i * 80; 
-        ctx.fillStyle = getContrastColor(myColor);
+        ctx.fillStyle = getContrastColor(myColor[i]);
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
       var numSpaghetti = 60;
