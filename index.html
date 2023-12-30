@@ -83,6 +83,18 @@
         ctx.fillStyle = getContrastColor(myColor);
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
+      var numSpaghetti = 200;
+      for (var i = 0; i < numSpaghetti; i++) {
+        ctx.fillStyle = getContrastColor(myColor);
+        var x = Math.random() * canvas.width;
+        var y = Math.random() * canvas.height;
+        var endX = x + (Math.random() - 0.5) * 10;
+        var endY = y + (Math.random() - 0.5) * 10;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
+      }
       var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
       var dta = ia.data;
       var r=getRandomInt(96,139);
