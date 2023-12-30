@@ -85,13 +85,13 @@
       };
       var numSpaghetti = 60;
       for (var i = 0; i < numSpaghetti; i++) {
-        ctx.fillStyle = getRandomColor();
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
         var endX = x + (Math.random() - 0.5) * 30;
         var endY = y + (Math.random() - 0.5) * 30;
         ctx.beginPath();
         ctx.moveTo(x, y);
+        ctx.fillStyle = getRandomColor();
         ctx.lineTo(endX, endY);
         ctx.stroke();
       }
