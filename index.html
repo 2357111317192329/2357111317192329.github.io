@@ -48,8 +48,10 @@
       return contrastColor;
   }
   var typ = getRandomInt(0, 19);
-  var randomNumber = getRandomInt(0, 9999);
-  randomNumber = ("0000" + randomNumber).slice(-4);
+  var randomNumber = "0000";
+  for (var i = 0; i < 4; i++) {
+      randomNumber[i]=String.fromCharCode(getRandomInt(48, 122));
+  };
   var canvas = document.getElementById("myCanvas");
   if(typ>0){
     window.onload = function() {
