@@ -71,8 +71,8 @@
   if(typ>0){
     window.onload = function() {
       var ctx = canvas.getContext("2d");
-      var myColor[4]=[getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor()];
-      var contrastColor[4]=[getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor()];
+      var myColor=[getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor()];
+      var contrastColor=[getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor()];
       for (var i = 0; i < 4; i++) {
         contrastColor[i] = getContrastColor(myColor[i]);
       };
