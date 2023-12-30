@@ -50,7 +50,10 @@
   var typ = getRandomInt(0, 19);
   var randomNumber = "0000";
   for (var i = 0; i < 4; i++) {
-      randomNumber[i]=String.fromCharCode(getRandomInt(48, 122));
+      var tmp=getRandomInt(48, 122);
+      console.log(tmp);
+      console.log(String.fromCharCode(tmp));
+      randomNumber[i]=String.fromCharCode(tmp);
   };
   var canvas = document.getElementById("myCanvas");
   if(typ>0){
