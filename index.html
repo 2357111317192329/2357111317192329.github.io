@@ -6,7 +6,7 @@
 <p>Simulating bonk.io</p>
 <h2>如果喜歡，歡迎<a href="https://www.paypal.com/paypalme/2357111317192329/1">捐款</a></h2>
 <h3>機器人測試</h3>
-  <canvas id="myCanvas" width="120" height="30" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+  <canvas id="myCanvas" width="200" height="50" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
   <br>
   輸入上述亂數: <input type="text" id="userInput">
   <button onclick="checkInput()">提交</button>
@@ -36,7 +36,7 @@ window.onload = function() {
   ctx.textBaseline = "middle";
   ctx.fillStyle = 'blue';
   for (var i = 0; i < 4; i++) {
-    var x = 15 + i * 30; 
+    var x = 25 + i * 50; 
     ctx.fillText(randomNumber[i], x, canvas.height / 2);
   }
   setTimeout(function() {
@@ -55,7 +55,7 @@ window.onload = function() {
       dta[i + 2] = newb;
     } 
     ctx.putImageData(ia, 0, 0);
-  }, 1000);
+  }, 1);
 }
 
 function checkInput() {
