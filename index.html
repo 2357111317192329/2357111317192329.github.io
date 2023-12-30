@@ -60,7 +60,7 @@
   var randomNumber = "";
   for (var i = 0; i < 4; i++) {
       var tmp=getRandomInt(48, 122);
-      while((tmp==59)||(tmp==91)||(tmp==93)||(tmp==96)||(tmp==94)){
+      while((tmp==59)||(tmp==91)||(tmp==93)||(tmp==96)||(tmp==94)||(tmp==60)||(tmp==62)){
         tmp=getRandomInt(48, 122)
       }
       tmp=String.fromCharCode(tmp)
