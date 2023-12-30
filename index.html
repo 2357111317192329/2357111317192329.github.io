@@ -71,16 +71,23 @@
   if(typ>0){
     window.onload = function() {
       var ctx = canvas.getContext("2d");
-      var myColor =getRandomColor();
-      var contrastColor = getContrastColor(myColor);
+      var myColor[4]={getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor()};
+      var contrastColor[4]={getRandomColor(),getRandomColor(),getRandomColor(),getRandomColor()};
+      for (var i = 0; i < 4; i++) {
+        contrastColor[i] = getContrastColor(myColor[i]);
+      };
       var img = document.getElementById("myImg");
       img.style.display = "none";
-      ctx.fillStyle = myColor;
+      var grd = ctx.createLinearGradient(0, 0,320,80);
+      grd.addColorStop(0, myColor[0]);
+      grd.addColorStop(0.33, myColor[1]);
+      grd.addColorStop(0.67, myColor[2]);
+      grd.addColorStop(1, myColor[3]);
+      ctx.fillStyle = grd;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.font = "bold "+getRandomInt(70, 90)+"px Source Code";
       ctx.textAlign = "center"; 
       ctx.textBaseline = "middle";
-      ctx.fillStyle = contrastColor;
       for (var i = 0; i < 4; i++) {
         var x = 40 + i * 80; 
         ctx.fillStyle = getContrastColor(myColor);
