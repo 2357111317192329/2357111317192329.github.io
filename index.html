@@ -16,68 +16,93 @@
 <script>
 var lastupdate;
 function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+  }
+  function getContrastColor(color) {
+      color = color.substring(1);
+      var r = parseInt(color.substring(0, 2), 16);
+      var g = parseInt(color.substring(2, 4), 16);
+      var b = parseInt(color.substring(4, 6), 16);
+      r = r > 127 ? 0 : 255;
+      g = g > 127 ? 0 : 255;
+      b = b > 127 ? 0 : 255;
+      r = r.toString(16);
+      g = g.toString(16);
+      b = b.toString(16);
+      if (r.length < 2) r = "0" + r;
+      if (g.length < 2) g = "0" + g;
+      if (b.length < 2) b = "0" + b;
+      var contrastColor = "#" + r + g + b;
+      return contrastColor;
+  }
+  var typ = getRandomInt(0, 19);
+  var randomNumber = getRandomInt(0, 9999);
+  randomNumber = ("0000" + randomNumber).slice(-4);
+  window.onload = function() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d",{ willReadFrequently: true });
+    var myColor =getRandomColor();
+    var contrastColor = getContrastColor(myColor);
+    if(typ>0){
+      ctx.fillStyle = contrastColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.font = "50px Arial";
+      ctx.textAlign = "center"; 
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = myColor;
+      for (var i = 0; i < 4; i++) {
+        var x = 25 + i * 50; 
+        ctx.fillText(randomNumber[i], x, canvas.height / 2);
+      };
+      var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      var dta = ia.data;
+      var r=150;
+      for (var i = 0; i < dta.length; i += 4) {
+        var delr=getRandomInt(-r, r);
+        var delg=getRandomInt(-r, r);
+        var delb=getRandomInt(-r, r);
+        var newr=Math.min(Math.max(0, dta[i] + delr),255);
+        var newg=Math.min(Math.max(0, dta[i+1] + delg),255);
+        var newb=Math.min(Math.max(0, dta[i+2] + delb),255);
+        dta[i] = newr;  
+        dta[i + 1] = newg;
+        dta[i + 2] = newb;
+      }
+      ctx.putImageData(ia, 0, 0);
     }
-    return color;
-}
-function getContrastColor(color) {
-    color = color.substring(1);
-    var r = parseInt(color.substring(0, 2), 16);
-    var g = parseInt(color.substring(2, 4), 16);
-    var b = parseInt(color.substring(4, 6), 16);
-    r = r > 127 ? 0 : 255;
-    g = g > 127 ? 0 : 255;
-    b = b > 127 ? 0 : 255;
-    r = r.toString(16);
-    g = g.toString(16);
-    b = b.toString(16);
-    if (r.length < 2) r = "0" + r;
-    if (g.length < 2) g = "0" + g;
-    if (b.length < 2) b = "0" + b;
-    var contrastColor = "#" + r + g + b;
-    return contrastColor;
-}
-var randomNumber = getRandomInt(0, 9999);
-randomNumber = ("0000" + randomNumber).slice(-4);
-window.onload = function() {
-  var canvas = document.getElementById("myCanvas");
-  var ctx = canvas.getContext("2d",{ willReadFrequently: true });
-  var myColor =getRandomColor();
-  var contrastColor = getContrastColor(myColor);
-  ctx.fillStyle = contrastColor;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.font = "50px Arial";
-  ctx.textAlign = "center"; 
-  ctx.textBaseline = "middle";
-  ctx.fillStyle = myColor;
-  for (var i = 0; i < 4; i++) {
-    var x = 25 + i * 50; 
-    ctx.fillText(randomNumber[i], x, canvas.height / 2);
-  };
-  var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  var dta = ia.data;
-  var r=150;
-  for (var i = 0; i < dta.length; i += 4) {
-    var delr=getRandomInt(-r, r);
-    var delg=getRandomInt(-r, r);
-    var delb=getRandomInt(-r, r);
-    var newr=Math.min(Math.max(0, dta[i] + delr),255);
-    var newg=Math.min(Math.max(0, dta[i+1] + delg),255);
-    var newb=Math.min(Math.max(0, dta[i+2] + delb),255);
-    dta[i] = newr;  
-    dta[i + 1] = newg;
-    dta[i + 2] = newb;
-  } 
-  ctx.putImageData(ia, 0, 0);
-}
+    else{
+      ctx.fillStyle = 'white';
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+      var img = document.getElementById('myImage');
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      randomNumber = "Google";
+      var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      var dta = ia.data;
+      var r=200;
+      for (var i = 0; i < dta.length; i += 4) {
+        var delr=getRandomInt(-r, r);
+        var delg=getRandomInt(-r, r);
+        var delb=getRandomInt(-r, r);
+        var newr=Math.min(Math.max(0, dta[i] + delr),255);
+        var newg=Math.min(Math.max(0, dta[i+1] + delg),255);
+        var newb=Math.min(Math.max(0, dta[i+2] + delb),255);
+        dta[i] = newr;  
+        dta[i + 1] = newg;
+        dta[i + 2] = newb;
+       }
+       ctx.putImageData(ia, 0, 0);
+    };
+  }
 
 function checkInput() {
   var userInput = document.getElementById("userInput").value;
