@@ -8,7 +8,7 @@
 <h2>如果喜歡，歡迎<a href="https://www.paypal.com/paypalme/2357111317192329/1">捐款</a></h2>
 <h3>機器人測試</h3>
   驗證碼
-  <img id="myImg" src="Logo_of_Twitter.png" width="200" height="50" style="display: inline;">
+  <img id="myImg" src="Logo_of_Twitter.png" width="320" height="80" style="display: inline;">
   <canvas id="myCanvas" width="200" height="50" style="border:1px solid #d3d3d3; display: inline;"></canvas>
   <button onclick="location.reload();">換一個</button>
   <br>
@@ -79,7 +79,7 @@
       ctx.textBaseline = "middle";
       ctx.fillStyle = contrastColor;
       for (var i = 0; i < 4; i++) {
-        var x = 25 + i * 50; 
+        var x = 40 + i * 80; 
         ctx.fillStyle = getContrastColor(myColor);
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
