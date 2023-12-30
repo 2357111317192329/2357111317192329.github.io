@@ -38,13 +38,13 @@
       var newr=getRandomInt(0, 255);
       var newg=getRandomInt(0, 255);
       var newb=getRandomInt(0, 255);
-      while((Math.abs(r-newr)<44)||((Math.abs(r-newr)>88))){
+      while((Math.abs(r-newr)<49)||((Math.abs(r-newr)>97))){
         newr=getRandomInt(0, 255);
       }
-      while((Math.abs(g-newg)<44)||((Math.abs(g-newg)>88))){
+      while((Math.abs(g-newg)<49)||((Math.abs(g-newg)>97))){
         newg=getRandomInt(0, 255);
       }
-      while((Math.abs(b-newb)<44)||((Math.abs(b-newb)>88))){
+      while((Math.abs(b-newb)<49)||((Math.abs(b-newb)>97))){
         newb=getRandomInt(0, 255);
       }
       r = newr.toString(16);
@@ -108,7 +108,7 @@
       }
       var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
       var dta = ia.data;
-      var r=getRandomInt(77,112);
+      var r=getRandomInt(69,100);
       for (var i = 0; i < dta.length; i += 4) {
         var delr=getRandomInt(-r, r);
         var delg=getRandomInt(-r, r);
