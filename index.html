@@ -93,7 +93,7 @@
         ctx.fillStyle = getContrastColor(myColor[i]);
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
-      var numSpaghetti = 60;
+      var numSpaghetti = 30;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
@@ -104,6 +104,15 @@
         ctx.strokeStyle = getRandomColor();
         ctx.lineTo(endX, endY);
         ctx.stroke();
+      }
+      var pepper = 750;
+      for (var i = 0; i < pepper; i++) {
+        var x = Math.random() * canvas.width;
+        var y = Math.random() * canvas.height;
+        ctx.fillStyle = getRandomColor();
+        ctx.beginPath();
+        ctx.arc(x, y, 1, 0, 2 * Math.PI);
+        ctx.fill();
       }
       var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
       var dta = ia.data;
@@ -120,7 +129,7 @@
         dta[i + 2] = newb;
       }
       ctx.putImageData(ia, 0, 0);
-      var numSpaghetti = 60;
+      var numSpaghetti = 30;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
@@ -131,6 +140,15 @@
         ctx.strokeStyle = getRandomColor();
         ctx.lineTo(endX, endY);
         ctx.stroke();
+      }
+      var pepper = 750;
+      for (var i = 0; i < pepper; i++) {
+        var x = Math.random() * canvas.width;
+        var y = Math.random() * canvas.height;
+        ctx.fillStyle = getRandomColor();
+        ctx.beginPath();
+        ctx.arc(x, y, 1, 0, 2 * Math.PI);
+        ctx.fill();
       }
     }
   }
