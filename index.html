@@ -35,12 +35,21 @@
       var r = parseInt(color.substring(0, 2), 16);
       var g = parseInt(color.substring(2, 4), 16);
       var b = parseInt(color.substring(4, 6), 16);
-      r = r > 127 ? 0 : 255;
-      g = g > 127 ? 0 : 255;
-      b = b > 127 ? 0 : 255;
-      r = r.toString(16);
-      g = g.toString(16);
-      b = b.toString(16);
+      var newr=getRandomInt(0, 255);
+      var newg=getRandomInt(0, 255);
+      var newb=getRandomInt(0, 255);
+      while(Math.abs(r-newr)<30){
+        newr=getRandomInt(0, 255);
+      }
+      while(Math.abs(g-newg)<30){
+        newg=getRandomInt(0, 255);
+      }
+      while(Math.abs(b-newb)<30){
+        newb=getRandomInt(0, 255);
+      }
+      r = newr.toString(16);
+      g = newg.toString(16);
+      b = newb.toString(16);
       if (r.length < 2) r = "0" + r;
       if (g.length < 2) g = "0" + g;
       if (b.length < 2) b = "0" + b;
@@ -63,12 +72,12 @@
       var contrastColor = getContrastColor(myColor);
       var img = document.getElementById("myImg");
       img.style.display = "none";
-      ctx.fillStyle = getRandomColor();
+      ctx.fillStyle = contrastColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.font = "50px Arial";
       ctx.textAlign = "center"; 
       ctx.textBaseline = "middle";
-      ctx.fillStyle = getRandomColor();
+      ctx.fillStyle = myColor;
       for (var i = 0; i < 4; i++) {
         var x = 25 + i * 50; 
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
