@@ -83,7 +83,7 @@ function getRandomInt(min, max) {
       ctx.fillStyle = 'white';
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       var img = document.getElementById('myImage');
-      img.onload{
+      img.onload= function() {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       }
       randomNumber = "Google";
