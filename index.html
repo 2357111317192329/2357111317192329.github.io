@@ -7,11 +7,12 @@
 <p>Simulating bonk.io</p>
 <h2>如果喜歡，歡迎<a href="https://www.paypal.com/paypalme/2357111317192329/1">捐款</a></h2>
 <h3>機器人測試</h3>
+  驗證碼
   <img id="myImg" src="Logo_of_Twitter.png" width="200" height="50" style="display: inline;">
   <canvas id="myCanvas" width="200" height="50" style="border:1px solid #d3d3d3; display: inline;"></canvas>
   <button onclick="location.reload();">換一個</button>
   <br>
-  輸入上述亂數: <input type="text" id="userInput">
+  請輸入驗證碼: <input type="text" id="userInput">
   <button onclick="checkInput()">提交</button>
   <p id="result"></p>
 <script>
@@ -100,7 +101,10 @@ function checkInput() {
     var text = document.getElementById("ale");
     text.style.display = "none"; 
   } else {
-    document.getElementById("result").innerHTML = "你是機器人";
+    document.getElementById("result").innerHTML = "你是機器人\n將在2秒後自動重新載入";
+    setTimeout(function() {
+      location.reload();
+    }, 2000);
   }
 }
 lastupdate=document.lastModified
