@@ -3,9 +3,11 @@
 <body>
 <h1>Hello Bonk</h1>
   <iframe id="myIframe" width="920" height="625"></iframe>
+  <p id="ale">請先通過機器人測試</p>
 <p>Simulating bonk.io</p>
 <h2>如果喜歡，歡迎<a href="https://www.paypal.com/paypalme/2357111317192329/1">捐款</a></h2>
 <h3>機器人測試</h3>
+  <img id="myCanvas" src="Logo_of_Twitter" width="200" height="50">
   <canvas id="myCanvas" width="200" height="50" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
   <button onclick="location.reload();">換一個</button>
   <br>
@@ -53,6 +55,8 @@ function getRandomInt(min, max) {
     var myColor =getRandomColor();
     var contrastColor = getContrastColor(myColor);
     if(typ>0){
+      var img = document.getElementById("myImg");
+      img.style.display = "none";
       ctx.fillStyle = contrastColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.font = "50px Arial";
@@ -80,12 +84,9 @@ function getRandomInt(min, max) {
       ctx.putImageData(ia, 0, 0);
     }
     else{
-      ctx.fillStyle = 'white';
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-      var img = document.getElementById('myImage');
-      img.onload= function() {
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-      }
+      canvas.style.display = "none";
+      var img = document.getElementById("myImg");
+      img.style.display = "block";
       randomNumber = "Google";
     };
   }
@@ -96,6 +97,8 @@ function checkInput() {
     document.getElementById("result").innerHTML = "通過機器人測試";
     var iframe = document.getElementById("myIframe"); 
     iframe.src = "https://www.greenfoot.org/scenarios/28272?embed=true"; 
+    var text = document.getElementById("ale");
+    text.style.display = "none"; 
   } else {
     document.getElementById("result").innerHTML = "你是機器人";
   }
