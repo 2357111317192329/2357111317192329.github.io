@@ -87,21 +87,6 @@ function getRandomInt(min, max) {
       var img = document.getElementById('myImage');
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       randomNumber = "Google";
-      var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      var dta = ia.data;
-      var r=200;
-      for (var i = 0; i < dta.length; i += 4) {
-        var delr=getRandomInt(-r, r);
-        var delg=getRandomInt(-r, r);
-        var delb=getRandomInt(-r, r);
-        var newr=Math.min(Math.max(0, dta[i] + delr),255);
-        var newg=Math.min(Math.max(0, dta[i+1] + delg),255);
-        var newb=Math.min(Math.max(0, dta[i+2] + delb),255);
-        dta[i] = newr;  
-        dta[i + 1] = newg;
-        dta[i + 2] = newb;
-       }
-       ctx.putImageData(ia, 0, 0);
     };
   }
 
