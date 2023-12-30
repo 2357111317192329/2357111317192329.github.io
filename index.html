@@ -63,12 +63,12 @@
       var contrastColor = getContrastColor(myColor);
       var img = document.getElementById("myImg");
       img.style.display = "none";
-      ctx.fillStyle = contrastColor;
+      ctx.fillStyle = getRandomColor();
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.font = "50px Arial";
       ctx.textAlign = "center"; 
       ctx.textBaseline = "middle";
-      ctx.fillStyle = myColor;
+      ctx.fillStyle = getRandomColor();
       for (var i = 0; i < 4; i++) {
         var x = 25 + i * 50; 
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
