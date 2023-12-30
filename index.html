@@ -49,12 +49,12 @@
   var typ = getRandomInt(0, 19);
   var randomNumber = getRandomInt(0, 9999);
   randomNumber = ("0000" + randomNumber).slice(-4);
-  window.onload = function() {
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var myColor =getRandomColor();
-    var contrastColor = getContrastColor(myColor);
-    if(typ>0){
+  var canvas = document.getElementById("myCanvas");
+  if(typ>0){
+    window.onload = function() {
+      var ctx = canvas.getContext("2d");
+      var myColor =getRandomColor();
+      var contrastColor = getContrastColor(myColor);
       var img = document.getElementById("myImg");
       img.style.display = "none";
       ctx.fillStyle = contrastColor;
@@ -83,12 +83,11 @@
       }
       ctx.putImageData(ia, 0, 0);
     }
-    else{
-      canvas.style.display = "none";
-      var img = document.getElementById("myImg");
-      img.style.display = "block";
-      randomNumber = "Google";
-    };
+  else{
+    canvas.style.display = "none";
+    var img = document.getElementById("myImg");
+    img.style.display = "block";
+    randomNumber = "Google";
   }
 
 function checkInput() {
