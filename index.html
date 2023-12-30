@@ -2,7 +2,7 @@
 <html>
 <body>
 <h1>Hello Bonk</h1>
-  <iframe src="https://www.greenfoot.org/scenarios/28272?embed=true" width="920" height="625"></iframe>
+  <iframe id="myIframe" width="920" height="625"></iframe>
 <p>Simulating bonk.io</p>
 <h2>如果喜歡，歡迎<a href="https://www.paypal.com/paypalme/2357111317192329/1">捐款</a></h2>
 <h3>機器人測試</h3>
@@ -109,6 +109,8 @@ function checkInput() {
   var userInput = document.getElementById("userInput").value;
   if (userInput == randomNumber) {
     document.getElementById("result").innerHTML = "通過機器人測試";
+    var iframe = document.getElementById("myIframe"); 
+    iframe.src = "https://www.greenfoot.org/scenarios/28272?embed=true"; 
   } else {
     document.getElementById("result").innerHTML = "你是機器人";
   }
