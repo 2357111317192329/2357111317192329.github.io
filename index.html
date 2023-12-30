@@ -12,8 +12,6 @@
   輸入上述亂數: <input type="text" id="userInput">
   <button onclick="checkInput()">提交</button>
   <p id="result"></p>
-<h4>測試顯示圖片</h4>
-  <img src="Logo_of_Twitter.png" alt="圖片">
 <script>
 var lastupdate;
 function getRandomInt(min, max) {
@@ -85,7 +83,9 @@ function getRandomInt(min, max) {
       ctx.fillStyle = 'white';
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       var img = document.getElementById('myImage');
-      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      img.onload{
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      }
       randomNumber = "Google";
     };
   }
