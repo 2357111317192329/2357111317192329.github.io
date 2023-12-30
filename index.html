@@ -29,7 +29,7 @@ randomNumber = ("0000" + randomNumber).slice(-4);
 window.onload = function() {
   var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "red";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.font = "30px Arial";
   ctx.textAlign = "center"; 
@@ -39,21 +39,23 @@ window.onload = function() {
     var x = 15 + i * 30; 
     ctx.fillText(randomNumber[i], x, canvas.height / 2);
   }
-  var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  var dta = ia.data;
-  var r=100
-  for (var i = 0; i < dta.length; i += 4) {
-    var delr=getRandomInt(-r, r);
-    var delg=getRandomInt(-r, r);
-    var delb=getRandomInt(-r, r);
-    var newr=Math.min(Math.max(0, dta[i] + delr),255)
-    var newg=Math.min(Math.max(0, dta[i] + delg),255)
-    var newb=Math.min(Math.max(0, dta[i] + delb),255)
-    dta[i] = newr;  
-    dta[i + 1] = newg;
-    dta[i + 2] = newb;
-  }
-  ctx.putImageData(ia, 0, 0);
+  setTimeout(function() {
+    var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    var dta = ia.data;
+    var r=100
+    for (var i = 0; i < dta.length; i += 4) {
+      var delr=getRandomInt(-r, r);
+      var delg=getRandomInt(-r, r);
+      var delb=getRandomInt(-r, r);
+      var newr=Math.min(Math.max(0, dta[i] + delr),255)
+      var newg=Math.min(Math.max(0, dta[i] + delg),255)
+      var newb=Math.min(Math.max(0, dta[i] + delb),255)
+      dta[i] = newr;  
+      dta[i + 1] = newg;
+      dta[i + 2] = newb;
+    } 
+    ctx.putImageData(ia, 0, 0);
+  }, 1000);
 }
 
 function checkInput() {
