@@ -38,13 +38,13 @@
       var newr=getRandomInt(0, 255);
       var newg=getRandomInt(0, 255);
       var newb=getRandomInt(0, 255);
-      while((Math.abs(r-newr)<69)||((Math.abs(r-newr)>95))){
+      while((Math.abs(r-newr)<69)||((Math.abs(r-newr)>85))){
         newr=getRandomInt(0, 255);
       }
-      while((Math.abs(g-newg)<69)||((Math.abs(g-newg)>95))){
+      while((Math.abs(g-newg)<69)||((Math.abs(g-newg)>85))){
         newg=getRandomInt(0, 255);
       }
-      while((Math.abs(b-newb)<69)||((Math.abs(b-newb)>95))){
+      while((Math.abs(b-newb)<69)||((Math.abs(b-newb)>85))){
         newb=getRandomInt(0, 255);
       }
       r = newr.toString(16);
@@ -89,13 +89,13 @@
       for (var i = 0; i < pepper; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
-        ctx.fillStyle = getContrastColor(contrastColor[i%4])
+        ctx.fillStyle = getContrastColor(contrastColor[i%4]);
         ctx.beginPath();
         var r=Math.random() *4;
         ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.fill();
       }
-      ctx.font = "bold "+getRandomInt(70, 90)+"px Source Code";
+      ctx.font = "bold "+getRandomInt(70, 90)+"px Verdana";
       ctx.textAlign = "center"; 
       ctx.textBaseline = "middle";
       for (var i = 0; i < 4; i++) {
@@ -103,7 +103,7 @@
         ctx.fillStyle = getContrastColor(myColor[i]);
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
-      var numSpaghetti = 20;
+      var numSpaghetti = 22;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
@@ -130,7 +130,7 @@
         dta[i + 2] = newb;
       }
       ctx.putImageData(ia, 0, 0);
-      var numSpaghetti = 20;
+      var numSpaghetti = 22;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
@@ -146,9 +146,10 @@
       for (var i = 0; i < pepper; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
-        ctx.fillStyle = getRandomColor();
+        ctx.fillStyle = getContrastColor(contrastColor[i%4])
         ctx.beginPath();
-        ctx.arc(x, y, 1, 0, 2 * Math.PI);
+        var r=Math.random() *4;
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.fill();
       }
     }
