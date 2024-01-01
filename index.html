@@ -103,7 +103,7 @@
         ctx.fillStyle = getContrastColor(myColor[i]);
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
-      var numSpaghetti = 22;
+      var numSpaghetti = 26;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
@@ -130,7 +130,7 @@
         dta[i + 2] = newb;
       }
       ctx.putImageData(ia, 0, 0);
-      var numSpaghetti = 22;
+      var numSpaghetti = 26;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
@@ -148,7 +148,7 @@
         var y = Math.random() * canvas.height;
         ctx.fillStyle = getContrastColor(contrastColor[i%4])
         ctx.beginPath();
-        var r=Math.random() *4;
+        var r=Math.random() *3;
         ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.fill();
       }
