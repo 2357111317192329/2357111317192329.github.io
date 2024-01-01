@@ -95,7 +95,7 @@
         ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.fill();
       }
-      ctx.font = "bold "+getRandomInt(70, 90)+"px Verdana";
+      ctx.font = "bold "+getRandomInt(75, 85)+"px Verdana";
       ctx.textAlign = "center"; 
       ctx.textBaseline = "middle";
       for (var i = 0; i < 4; i++) {
@@ -106,7 +106,7 @@
         ctx.fillStyle = grd;
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
-      var numSpaghetti = 37;
+      var numSpaghetti = 40;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
@@ -133,7 +133,7 @@
         dta[i + 2] = newb;
       }
       ctx.putImageData(ia, 0, 0);
-      var numSpaghetti = 37;
+      var numSpaghetti = 40;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
