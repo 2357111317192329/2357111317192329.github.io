@@ -173,7 +173,7 @@ function checkInput() {
     var text = document.getElementById("ale");
     text.style.display = "none"; 
   } else {
-    document.getElementById("result").innerHTML = "你是機器人<br>將在2秒後自動重新載入";
+    document.getElementById("result").innerHTML = "你是機器人<br>正確答案是"+randomNumber+"<br>將在2秒後自動重新載入";
     setTimeout(function() {
       location.reload();
     }, 2000);
