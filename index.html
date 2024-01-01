@@ -38,13 +38,13 @@
       var newr=getRandomInt(0, 255);
       var newg=getRandomInt(0, 255);
       var newb=getRandomInt(0, 255);
-      while((Math.abs(r-newr)<63)||((Math.abs(r-newr)>95))){
+      while((Math.abs(r-newr)<69)||((Math.abs(r-newr)>95))){
         newr=getRandomInt(0, 255);
       }
-      while((Math.abs(g-newg)<63)||((Math.abs(g-newg)>95))){
+      while((Math.abs(g-newg)<69)||((Math.abs(g-newg)>95))){
         newg=getRandomInt(0, 255);
       }
-      while((Math.abs(b-newb)<63)||((Math.abs(b-newb)>95))){
+      while((Math.abs(b-newb)<69)||((Math.abs(b-newb)>95))){
         newb=getRandomInt(0, 255);
       }
       r = newr.toString(16);
@@ -60,7 +60,7 @@
   var randomNumber = "";
   for (var i = 0; i < 4; i++) {
       var tmp=getRandomInt(48, 122);
-      while(((tmp>57)&&(tmp<65))||((tmp>90)&&(tmp<97))){
+      while(((tmp>57)&&(tmp<65))||((tmp>90)&&(tmp<97))||(tmp==108)){
         tmp=getRandomInt(48, 122)
       }
       tmp=String.fromCharCode(tmp)
@@ -91,7 +91,7 @@
         var y = Math.random() * canvas.height;
         ctx.fillStyle = getContrastColor(contrastColor[i%4])
         ctx.beginPath();
-        var r=Math.random() *4.5;
+        var r=Math.random() *4;
         ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.fill();
       }
