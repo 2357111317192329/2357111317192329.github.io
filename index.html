@@ -100,7 +100,10 @@
       ctx.textBaseline = "middle";
       for (var i = 0; i < 4; i++) {
         var x = 40 + i * 80; 
-        ctx.fillStyle = getContrastColor(myColor[i]);
+        var grd = ctx.createRadialGradient(x, 40, 0, x, 40, 40);
+        grd.addColorStop(0, getContrastColor(myColor[i]));
+        grd.addColorStop(1, getContrastColor(myColor[i]));
+        ctx.fillStyle = grd;
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
       var numSpaghetti = 37;
