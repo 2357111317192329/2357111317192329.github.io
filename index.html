@@ -38,13 +38,13 @@
       var newr=getRandomInt(0, 255);
       var newg=getRandomInt(0, 255);
       var newb=getRandomInt(0, 255);
-      while((Math.abs(r-newr)<53)||((Math.abs(r-newr)>95))){
+      while((Math.abs(r-newr)<58)||((Math.abs(r-newr)>95))){
         newr=getRandomInt(0, 255);
       }
-      while((Math.abs(g-newg)<53)||((Math.abs(g-newg)>95))){
+      while((Math.abs(g-newg)<58)||((Math.abs(g-newg)>95))){
         newg=getRandomInt(0, 255);
       }
-      while((Math.abs(b-newb)<53)||((Math.abs(b-newb)>95))){
+      while((Math.abs(b-newb)<58)||((Math.abs(b-newb)>95))){
         newb=getRandomInt(0, 255);
       }
       r = newr.toString(16);
@@ -89,7 +89,7 @@
       for (var i = 0; i < pepper; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
-        ctx.fillStyle = getRandomColor();
+        ctx.fillStyle = getContrastColor(contrastColor[i])
         ctx.beginPath();
         var r=Math.random() *5;
         ctx.arc(x, y, r, 0, 2 * Math.PI);
