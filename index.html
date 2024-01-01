@@ -85,6 +85,16 @@
       grd.addColorStop(0.875, myColor[3]);
       ctx.fillStyle = grd;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+      var pepper = 500;
+      for (var i = 0; i < pepper; i++) {
+        var x = Math.random() * canvas.width;
+        var y = Math.random() * canvas.height;
+        ctx.fillStyle = getRandomColor();
+        ctx.beginPath();
+        var r=Math.random() *5;
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.fill();
+      }
       ctx.font = "bold "+getRandomInt(70, 90)+"px Source Code";
       ctx.textAlign = "center"; 
       ctx.textBaseline = "middle";
@@ -104,15 +114,6 @@
         ctx.strokeStyle = getRandomColor();
         ctx.lineTo(endX, endY);
         ctx.stroke();
-      }
-      var pepper = 500;
-      for (var i = 0; i < pepper; i++) {
-        var x = Math.random() * canvas.width;
-        var y = Math.random() * canvas.height;
-        ctx.fillStyle = getRandomColor();
-        ctx.beginPath();
-        ctx.arc(x, y, 1, 0, 2 * Math.PI);
-        ctx.fill();
       }
       var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
       var dta = ia.data;
@@ -147,8 +148,7 @@
         var y = Math.random() * canvas.height;
         ctx.fillStyle = getRandomColor();
         ctx.beginPath();
-        var r=Math.random() *5;
-        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.arc(x, y, 1, 0, 2 * Math.PI);
         ctx.fill();
       }
     }
