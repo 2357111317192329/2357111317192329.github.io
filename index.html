@@ -78,7 +78,7 @@
       };
       var img = document.getElementById("myImg");
       img.style.display = "none";
-      var grd = ctx.createLinearGradient(0, 0,320,80);
+      var grd = ctx.createLinearGradient(0, 80,320,0);
       grd.addColorStop(0.125, myColor[0]);
       grd.addColorStop(0.375, myColor[1]);
       grd.addColorStop(0.625, myColor[2]);
@@ -148,7 +148,7 @@
         ctx.fillStyle = getRandomColor();
         ctx.beginPath();
         var r=Math.random() *5;
-        ctx.arc(x, y, 1, 0, 2 * Math.PI);
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
         ctx.fill();
       }
     }
