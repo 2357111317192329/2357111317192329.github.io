@@ -89,7 +89,7 @@
       for (var i = 0; i < pepper; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
-        ctx.fillStyle = getContrastColor(contrastColor[i])
+        ctx.fillStyle = getContrastColor(contrastColor[i%4])
         ctx.beginPath();
         var r=Math.random() *5;
         ctx.arc(x, y, r, 0, 2 * Math.PI);
