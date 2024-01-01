@@ -38,13 +38,13 @@
       var newr=getRandomInt(0, 255);
       var newg=getRandomInt(0, 255);
       var newb=getRandomInt(0, 255);
-      while((Math.abs(r-newr)<82)||((Math.abs(r-newr)>93))){
+      while((Math.abs(r-newr)<90)||((Math.abs(r-newr)>111))){
         newr=getRandomInt(0, 255);
       }
-      while((Math.abs(g-newg)<82)||((Math.abs(g-newg)>93))){
+      while((Math.abs(g-newg)<90)||((Math.abs(g-newg)>111))){
         newg=getRandomInt(0, 255);
       }
-      while((Math.abs(b-newb)<82)||((Math.abs(b-newb)>93))){
+      while((Math.abs(b-newb)<90)||((Math.abs(b-newb)>111))){
         newb=getRandomInt(0, 255);
       }
       r = newr.toString(16);
@@ -106,7 +106,7 @@
         ctx.fillStyle = grd;
         ctx.fillText(randomNumber[i], x, canvas.height / 2);
       };
-      var numSpaghetti = 40;
+      var numSpaghetti = 44;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
@@ -133,7 +133,7 @@
         dta[i + 2] = newb;
       }
       ctx.putImageData(ia, 0, 0);
-      var numSpaghetti = 40;
+      var numSpaghetti = 44;
       for (var i = 0; i < numSpaghetti; i++) {
         var x = Math.random() * canvas.width;
         var y = Math.random() * canvas.height;
