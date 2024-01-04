@@ -21,6 +21,25 @@ window.onload = function() {
         }
         ctx.putImageData(imageData, 0, 0);
     };
+    var img = new Image();
+    img.crossOrigin = "";
+    img.onload = test;
+    img.src = "https://i.imgur.com/fHyEMsl.jpg";
+    
+    function test() {
+    
+      var ctx = document.querySelector("canvas").getContext("2d");
+      ctx.drawImage(this, 0, 0);
+      
+      // This will fail if no CORS support, otherwise all OK
+      try {
+        ctx.getImageData(0, 0, 10, 10);
+        alert("All OK");
+      } 
+      catch(err) {
+        alert("No CORS support...");
+      }
+    }
 };
 </script>
 
