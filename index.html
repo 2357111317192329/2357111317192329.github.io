@@ -156,6 +156,7 @@
   }
   else{
     var img = new Image();
+    var ctx = canvas.getContext("2d");
     img.src = 'https://2357111317192329.github.io/Logo_of_Twitter.png';
     img.onload = function() {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
