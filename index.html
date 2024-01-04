@@ -8,7 +8,6 @@
 <h2>如果喜歡，歡迎<a href="https://www.paypal.com/paypalme/2357111317192329/1">捐款</a></h2>
 <h3>機器人測試</h3>
   驗證碼
-  <img id="myImg" src="Logo_of_Twitter.png" width="320" height="80" style="display: inline;">
   <canvas id="myCanvas" width="320" height="80" style="border:1px solid #d3d3d3; display: inline;"></canvas>
   <button onclick="location.reload();">換一個</button>
   <br>
@@ -76,8 +75,6 @@
       for (var i = 0; i < 4; i++) {
         contrastColor[i] = getContrastColor(myColor[i]);
       };
-      var img = document.getElementById("myImg");
-      img.style.display = "none";
       var grd = ctx.createLinearGradient(0, 80,320,0);
       grd.addColorStop(0.125, myColor[0]);
       grd.addColorStop(0.375, myColor[1]);
@@ -158,9 +155,70 @@
     }
   }
   else{
-    canvas.style.display = "none";
-    var img = document.getElementById("myImg");
-    img.style.display = "block";
+    var img = new Image();
+    img.src = 'https://2357111317192329.github.io/Logo_of_Twitter.png';
+    img.onload = function() {
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        var pepper = 500;
+        for (var i = 0; i < pepper; i++) {
+          var x = Math.random() * canvas.width;
+          var y = Math.random() * canvas.height;
+          ctx.fillStyle = getRandomColor();
+          ctx.beginPath();
+          var r=Math.random() *4;
+          ctx.arc(x, y, r, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+        var numSpaghetti = 44;
+        for (var i = 0; i < numSpaghetti; i++) {
+          var x = Math.random() * canvas.width;
+          var y = Math.random() * canvas.height;
+          var endX = x + (Math.random() - 0.5) * 120;
+          var endY = y + (Math.random() - 0.5) * 30;
+          ctx.beginPath();
+          ctx.moveTo(x, y);
+          ctx.strokeStyle = getRandomColor();
+          ctx.lineTo(endX, endY);
+          ctx.stroke();
+        }
+        var ia = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var dta = ia.data;
+        var r=getRandomInt(60,79);
+        for (var i = 0; i < dta.length; i += 4) {
+          var delr=getRandomInt(-r, r);
+          var delg=getRandomInt(-r, r);
+          var delb=getRandomInt(-r, r);
+          var newr=Math.min(Math.max(0, dta[i] + delr),255);
+          var newg=Math.min(Math.max(0, dta[i+1] + delg),255);
+          var newb=Math.min(Math.max(0, dta[i+2] + delb),255);
+          dta[i] = newr;  
+          dta[i + 1] = newg;
+          dta[i + 2] = newb;
+        }
+        ctx.putImageData(ia, 0, 0);
+        var numSpaghetti = 44;
+        for (var i = 0; i < numSpaghetti; i++) {
+          var x = Math.random() * canvas.width;
+          var y = Math.random() * canvas.height;
+          var endX = x + (Math.random() - 0.5) * 120;
+          var endY = y + (Math.random() - 0.5) * 30;
+          ctx.beginPath();
+          ctx.moveTo(x, y);
+          ctx.strokeStyle = getRandomColor();
+          ctx.lineTo(endX, endY);
+          ctx.stroke();
+        }
+        var pepper = 288;
+        for (var i = 0; i < pepper; i++) {
+          var x = Math.random() * canvas.width;
+          var y = Math.random() * canvas.height;
+          ctx.fillStyle = getRandomColor();
+          ctx.beginPath();
+          var r=Math.random() *1.7;
+          ctx.arc(x, y, r, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+    };
     randomNumber = "Google";
   }
 
