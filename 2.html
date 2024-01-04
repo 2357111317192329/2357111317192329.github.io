@@ -1,15 +1,26 @@
-<HTML>
-<HEAD>
-<TITLE>applet</TITLE>
-</HEAD>
-<BODY>
-<APPLET CODE = "MyApplet.class"
-              JAVA_CODEBASE = "."
-              ARCHIVE = "bonk.jar"
-              WIDTH = 920
-              HEIGHT = 625
-              NAME = "bomk"
-              >
-</APPLET>
-</BODY>
-</HTML>
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+window.onload = function() {
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.src = 'https://2357111317192329.github.io/Logo_of_Twitter.png';
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < imageData.data.length; i += 4) {
+            imageData.data[i] = Math.max(0, imageData.data[i] - Math.floor(Math.random() * 101));
+            imageData.data[i+1] = Math.max(0, imageData.data[i+1] - Math.floor(Math.random() * 101));
+            imageData.data[i+2] = Math.max(0, imageData.data[i+2] - Math.floor(Math.random() * 101));
+        }
+        ctx.putImageData(imageData, 0, 0);
+    };
+};
+</script>
+
