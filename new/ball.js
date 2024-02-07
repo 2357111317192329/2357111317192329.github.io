@@ -15,6 +15,7 @@ class ball {
     this.vy=this.vy+g;
   }
   control(stepx=10,stepy=10) {
+    //無效，下次新增鍵盤類別以儲存按鍵是否被按下
     window.addEventListener('keypress', function(event) {
       switch (event.key) {
         case "ArrowUp":
