@@ -7,9 +7,11 @@ class ball {
     this.vy=vy;
     this.bb=bb;
   }
-
   // 定義一個物件方法
   lookdata() {
     console.log(`r:${this.r} x:${this.x} y:${this.y} vx:${this.vx} vy:${this.vy} bb:${this.bb}`);
+  }
+  gravity(g) {
+    this.vy=this.vy+g;
   }
 }
