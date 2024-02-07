@@ -11,23 +11,23 @@ class ball {
   lookdata() {
     console.log(`r:${this.r} x:${this.x} y:${this.y} vx:${this.vx} vy:${this.vy} bb:${this.bb}`);
   }
-  gravity(g) {
+  gravity(g=2) {
     this.vy=this.vy+g;
   }
-  control() {
+  control(stepx=10,stepy=10) {
     window.addEventListener('keydown', function(event) {
       switch (event.key) {
         case "ArrowUp":
-          this.vy-=10;
+          this.vy-=stepy;
           break;
         case "ArrowDown":
-          this.vy+=10;
+          this.vy+=stepy;
           break;
         case "ArrowLeft":
-          this.vx-=10;
+          this.vx-=stepx;
           break;
         case "ArrowRight":
-          this.vx+=10;
+          this.vx+=stepx;
           break;
       }
     }
