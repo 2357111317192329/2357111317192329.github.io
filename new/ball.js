@@ -14,4 +14,22 @@ class ball {
   gravity(g) {
     this.vy=this.vy+g;
   }
+  control() {
+    window.addEventListener('keydown', function(event) {
+      switch (event.key) {
+        case "ArrowUp":
+          this.vy-=10;
+          break;
+        case "ArrowDown":
+          this.vy+=10;
+          break;
+        case "ArrowLeft":
+          this.vx-=10;
+          break;
+        case "ArrowRight":
+          this.vx+=10;
+          break;
+      }
+    }
+  }
 }
