@@ -15,7 +15,7 @@ class ball {
     this.vy=this.vy+g;
   }
   control(stepx=10,stepy=10) {
-    window.addEventListener('keydown', function(event) {
+    window.addEventListener('keypress', function(event) {
       switch (event.key) {
         case "ArrowUp":
           this.vy-=stepy;
