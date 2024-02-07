@@ -3,6 +3,9 @@ class ball {
     this.r = r;
     this.x= x;
     this.y= y;
+    this.vx=0;
+    this.vy=0;
+    this.bb=0.9;
   }
 
   // 定義一個物件方法
