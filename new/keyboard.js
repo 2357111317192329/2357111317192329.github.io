@@ -8,6 +8,7 @@ class KeyTracker {
     };
     document.addEventListener('keydown', this.onKeyDown.bind(this));
     document.addEventListener('keyup', this.onKeyUp.bind(this));
+    this.interval = null;
   }
   onKeyDown(event) {
     const key = event.key;
