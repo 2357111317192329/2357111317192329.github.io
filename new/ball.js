@@ -1,8 +1,9 @@
 class ball {
-  constructor(r=20,x,y,vx=0,vy=0,bb=0.9) {
+  constructor(x,y,id,r=20,vx=0,vy=0,bb=0.9) {
     this.r = r;
     this.x= x;
     this.y= y;
+    this.id= id;
     this.vx=vx;
     this.vy=vy;
     this.bb=bb;
