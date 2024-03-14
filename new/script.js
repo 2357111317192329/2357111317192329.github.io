@@ -4,6 +4,6 @@ alert("Hello, World!");
 const keyTracker = new KeyTracker();
 setInterval(() => {
   if (keyTracker.isKeyPressed('ArrowUp')) {
-    console.log('YES');
+    alert('YES');
   }
 }, 2000);
