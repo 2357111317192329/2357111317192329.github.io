@@ -21,6 +21,8 @@ class KeyTracker {
     const key = event.key;
     if (this.keys.hasOwnProperty(key)) {
       this.keys[key] = false;
+      // 在这里处理松开按键
+      console.log(`The ${key} key has been released.`);
     }
   }
 
