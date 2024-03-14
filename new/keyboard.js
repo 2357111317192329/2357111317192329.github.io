@@ -27,9 +27,7 @@ class KeyTracker {
   }
 
   isKeyPressed(key) {
-    if (this.keys.hasOwnProperty(key)) {
-      return this.keys[key];
-    }
-    return false;
+    // 从 keys 中获取布林值
+    return this.keys[key];
   }
 }
