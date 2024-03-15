@@ -15,7 +15,7 @@ class KeyTracker {
     if (this.keys.hasOwnProperty(key)) {
       this.keys[key] = true;
       // 觸發事件或執行相應的操作
-      console.log(key + ' pd');
+      //console.log(key + ' pd');
     }
   }
 
@@ -24,7 +24,7 @@ class KeyTracker {
     if (this.keys.hasOwnProperty(key)) {
       this.keys[key] = false;
       // 觸發事件或執行相應的操作
-      console.log(key + ' rd');
+      //console.log(key + ' rd');
     }
   }
 
