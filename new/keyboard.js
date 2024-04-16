@@ -19,6 +19,7 @@ class KeyTracker {
     const key = event.key;
     if (this.keys.hasOwnProperty(key)) {
       this.keys[key] = true;
+      console.log('A is pressed');
     }
   }
 
