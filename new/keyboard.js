@@ -1,35 +1,22 @@
 class KeyTracker {
   constructor() {
-    this.keys = {
-      ArrowUp: false,
-      ArrowDown: false,
-      ArrowLeft: false,
-      ArrowRight: false,
-      KeyW: false,
-      KeyA: false,
-      KeyS: false,
-      KeyD: false,
-      KeyF: false,
-    };
+    this.keys = {};
     document.addEventListener('keydown', this.onKeyDown.bind(this));
     document.addEventListener('keyup', this.onKeyUp.bind(this));
   }
 
   onKeyDown(event) {
     const key = event.key;
-    if (this.keys.hasOwnProperty(key)) {
-      this.keys[key] = true;
-    }
+    this.keys[key] = true; // Set all key states to true on keydown
   }
 
   onKeyUp(event) {
     const key = event.key;
     if (this.keys.hasOwnProperty(key)) {
-      this.keys[key] = false;
+      this.keys[key] = false; // Only update existing key states on keyup
     }
   }
-
   isKeyPressed(key) {
-    return this.keys[key];
+    return this.keys[key] || false;
   }
 }
