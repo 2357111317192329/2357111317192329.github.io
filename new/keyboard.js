@@ -5,6 +5,11 @@ class KeyTracker {
       ArrowDown: false,
       ArrowLeft: false,
       ArrowRight: false,
+      KeyW: false,
+      KeyA: false,
+      KeyS: false,
+      KeyD: false,
+      KeyF: false,
     };
     document.addEventListener('keydown', this.onKeyDown.bind(this));
     document.addEventListener('keyup', this.onKeyUp.bind(this));
