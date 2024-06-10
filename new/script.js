@@ -5,18 +5,18 @@ const ball1 = new ball(100,0,1);
 //A is A
 //a is a
 setInterval(() => {
-  /*if (keyTracker.isKeyPressed('a') || keyTracker.isKeyPressed('A')) {
-    console.log('A is pressed');
+  let tmpleft=ball1.controlkey[0];
+  let tmpright=ball1.controlkey[1];
+  if (keyTracker.isKeyPressed(tmpleft)) {
+    ball1.move(-1,0);
   }
   else{
-    console.log('A is not pressed');
   }
-  if (keyTracker.isKeyPressed('ArrowUp')) {
-    console.log('up is pressed');
+  if (keyTracker.isKeyPressed(tmpright)) {
+    ball1.move(1,0);
   }
   else{
-    console.log('up is not pressed');
   }
-  */
+  ball1.update();
   ball1.lookdata();
 }, 100);
