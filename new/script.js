@@ -5,7 +5,7 @@ const ball0 = new ball(100,0,1);
 //A is A
 //a is a
 setInterval(() => {
-  if (keyTracker.isKeyPressed('a') || keyTracker.isKeyPressed('A')) {
+  /*if (keyTracker.isKeyPressed('a') || keyTracker.isKeyPressed('A')) {
     console.log('A is pressed');
   }
   else{
@@ -17,4 +17,6 @@ setInterval(() => {
   else{
     console.log('up is not pressed');
   }
+  */
+  console.log('123678');
 }, 100);
