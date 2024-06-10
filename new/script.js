@@ -1,5 +1,5 @@
 const keyTracker = new KeyTracker();
-const ball0 = new ball(100,0,1);
+const ball1 = new ball(100,0,1);
 //Up is ArrowUp
 //0 is 0
 //A is A
@@ -18,5 +18,5 @@ setInterval(() => {
     console.log('up is not pressed');
   }
   */
-  console.log('123678');
+  ball1.lookdata();
 }, 100);
