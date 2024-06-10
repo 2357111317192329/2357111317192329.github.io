@@ -1,4 +1,5 @@
 const keyTracker = new KeyTracker();
+const ball0 = new Ball();
 //Up is ArrowUp
 //0 is 0
 //A is A
