@@ -1,6 +1,7 @@
 const keyTracker = new KeyTracker();
 const ball1 = new ball(100,0,1);
 const grid1 = new grid(100,-200,1,200,30);
+const t = 0;
 //Up is ArrowUp
 //0 is 0
 //A is A
