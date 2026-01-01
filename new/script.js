@@ -38,6 +38,7 @@ setInterval(() => {
   else{
     ball1.gain_dense(0);
   }
+  grid1.lookdata();
   t=ball1.checkCollision(grid1);
   if (t !== null) {
     console.log(t);
