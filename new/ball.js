@@ -54,7 +54,7 @@ class ball {
       }
     }
   }
-  function collideVertical(xEdge) {
+  collideVertical(grid,xEdge) {
     if (this.vx === 0) return null;
   
     const t = (xEdge - this.x + Math.sign(this.vx) * this.r) / this.vx;
@@ -65,7 +65,7 @@ class ball {
   
     return null;
   }
-  function collideHorizontal(yEdge) {
+  collideHorizontal(grid,yEdge) {
     if (this.vy === 0) return null;
   
     const t = (yEdge - this.y + Math.sign(this.vy) * this.r) / this.vy;
@@ -102,15 +102,15 @@ class ball {
   checkCollision(grid) {
     const times = [];
   
-    times.push(collideVertical.call(this, grid.x-grid.l/2));
-    times.push(collideVertical.call(this, grid.x + grid.l/2));
-    times.push(collideHorizontal.call(this, grid.y-grid.h/2));
-    times.push(collideHorizontal.call(this, grid.y + grid.h/2));
+    times.push(collideVertical.call(grid, grid.x-grid.l/2));
+    times.push(collideVertical.call(grid, grid.x + grid.l/2));
+    times.push(collideHorizontal.call(grid, grid.y-grid.h/2));
+    times.push(collideHorizontal.call(grid, grid.y + grid.h/2));
   
-    times.push(collideCorner.call(this, grid.x-grid.l/2, grid.y-grid.h/2));
-    times.push(collideCorner.call(this, grid.x + grid.l/2, grid.y-grid.h/2));
-    times.push(collideCorner.call(this, grid.x-grid.l/2, grid.y + grid.h/2));
-    times.push(collideCorner.call(this, grid.x + grid.l/2, grid.y + grid.h/2));
+    times.push(collideCorner.call(grid, grid.x-grid.l/2, grid.y-grid.h/2));
+    times.push(collideCorner.call(grid, grid.x + grid.l/2, grid.y-grid.h/2));
+    times.push(collideCorner.call(grid, grid.x-grid.l/2, grid.y + grid.h/2));
+    times.push(collideCorner.call(grid, grid.x + grid.l/2, grid.y + grid.h/2));
   
     const valid = times.filter(t => t !== null);
     if (valid.length === 0) return null;
