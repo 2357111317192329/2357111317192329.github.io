@@ -66,7 +66,6 @@ class ball {
     return null;
   }
   collideHorizontal(grid,yEdge) {
-    console.log(`yEdge:${yEdge}`);
     if (this.vy === 0) return null;
   
     const t = (yEdge - this.y + Math.sign(this.vy) * this.r) / this.vy;
@@ -101,18 +100,21 @@ class ball {
     return null;
   }
   checkCollision(grid) {
-    console.log(`gridx:${grid.x}`);
     const times = [];
+    var up,down,left,right;
+    up=grid.y + grid.h/2;
+    down=grid.y - grid.h/2;
+    left=grid.x - grid.l/2;
+    right=grid.x + grid.l/2;
+    times.push(this.collideVertical.call(grid, left));
+    times.push(this.collideVertical.call(grid, right));
+    times.push(this.collideHorizontal.call(grid, down));
+    times.push(this.collideHorizontal.call(grid, up));
   
-    times.push(this.collideVertical.call(grid, grid.x-grid.l/2));
-    times.push(this.collideVertical.call(grid, grid.x + grid.l/2));
-    times.push(this.collideHorizontal.call(grid, grid.y-grid.h/2));
-    times.push(this.collideHorizontal.call(grid, grid.y + grid.h/2));
-  
-    times.push(this.collideCorner.call(grid, grid.x-grid.l/2, grid.y-grid.h/2));
-    times.push(this.collideCorner.call(grid, grid.x + grid.l/2, grid.y-grid.h/2));
-    times.push(this.collideCorner.call(grid, grid.x-grid.l/2, grid.y + grid.h/2));
-    times.push(this.collideCorner.call(grid, grid.x + grid.l/2, grid.y + grid.h/2));
+    times.push(this.collideCorner.call(grid, left, down));
+    times.push(this.collideCorner.call(grid, right, down));
+    times.push(this.collideCorner.call(grid, left, up));
+    times.push(this.collideCorner.call(grid, right, up));
   
     const valid = times.filter(t => t !== null);
     if (valid.length === 0) return null;
