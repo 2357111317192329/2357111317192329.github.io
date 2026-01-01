@@ -66,6 +66,7 @@ class ball {
     return null;
   }
   collideHorizontal(grid,yEdge) {
+    console.log(`yEdge:${yEdge}`);
     if (this.vy === 0) return null;
   
     const t = (yEdge - this.y + Math.sign(this.vy) * this.r) / this.vy;
