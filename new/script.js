@@ -38,6 +38,8 @@ setInterval(() => {
   else{
     ball1.gain_dense(0);
   }
+  t=ball1.checkCollision(grid1);
+  
   ball1.update();
   ball1.lookdata();
 }, 100);
