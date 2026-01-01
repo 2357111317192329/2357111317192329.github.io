@@ -1,6 +1,6 @@
 const keyTracker = new KeyTracker();
 const ball1 = new ball(100,0,1);
-const grid1 = new grid(100,-200,1,200,30);
+const grid1 = new grid(100,-200,1,200,300);
 var t = 0;
 //Up is ArrowUp
 //0 is 0
@@ -41,6 +41,9 @@ setInterval(() => {
   t=ball1.checkCollision(grid1);
   if (t !== null) {
     console.log(t);
+  }
+  else{
+    console.log(-1);
   }
   ball1.update();
   ball1.lookdata();
