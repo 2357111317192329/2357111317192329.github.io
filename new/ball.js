@@ -101,7 +101,7 @@ class ball {
     return null;
   }
   checkCollision(grid) {
-    console.log(`grid:${grid}`);
+    console.log(`gridx:${grid.x}`);
     const times = [];
   
     times.push(this.collideVertical.call(grid, grid.x-grid.l/2));
