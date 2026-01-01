@@ -102,15 +102,15 @@ class ball {
   checkCollision(grid) {
     const times = [];
   
-    times.push(collideVertical.call(grid, grid.x-grid.l/2));
-    times.push(collideVertical.call(grid, grid.x + grid.l/2));
-    times.push(collideHorizontal.call(grid, grid.y-grid.h/2));
-    times.push(collideHorizontal.call(grid, grid.y + grid.h/2));
+    times.push(this.collideVertical.call(grid, grid.x-grid.l/2));
+    times.push(this.collideVertical.call(grid, grid.x + grid.l/2));
+    times.push(this.collideHorizontal.call(grid, grid.y-grid.h/2));
+    times.push(this.collideHorizontal.call(grid, grid.y + grid.h/2));
   
-    times.push(collideCorner.call(grid, grid.x-grid.l/2, grid.y-grid.h/2));
-    times.push(collideCorner.call(grid, grid.x + grid.l/2, grid.y-grid.h/2));
-    times.push(collideCorner.call(grid, grid.x-grid.l/2, grid.y + grid.h/2));
-    times.push(collideCorner.call(grid, grid.x + grid.l/2, grid.y + grid.h/2));
+    times.push(this.collideCorner.call(grid, grid.x-grid.l/2, grid.y-grid.h/2));
+    times.push(this.collideCorner.call(grid, grid.x + grid.l/2, grid.y-grid.h/2));
+    times.push(this.collideCorner.call(grid, grid.x-grid.l/2, grid.y + grid.h/2));
+    times.push(this.collideCorner.call(grid, grid.x + grid.l/2, grid.y + grid.h/2));
   
     const valid = times.filter(t => t !== null);
     if (valid.length === 0) return null;
