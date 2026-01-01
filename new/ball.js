@@ -106,15 +106,15 @@ class ball {
     down=grid.y - grid.h/2;
     left=grid.x - grid.l/2;
     right=grid.x + grid.l/2;
-    times.push(this.collideVertical.call(grid, left));
-    times.push(this.collideVertical.call(grid, right));
-    times.push(this.collideHorizontal.call(grid, down));
-    times.push(this.collideHorizontal.call(grid, up));
+    times.push(this.collideVertical(grid, left));
+    times.push(this.collideVertical(grid, right));
+    times.push(this.collideHorizontal(grid, down));
+    times.push(this.collideHorizontal(grid, up));
   
-    times.push(this.collideCorner.call(grid, left, down));
-    times.push(this.collideCorner.call(grid, right, down));
-    times.push(this.collideCorner.call(grid, left, up));
-    times.push(this.collideCorner.call(grid, right, up));
+    times.push(this.collideCorner(grid, left, down));
+    times.push(this.collideCorner(grid, right, down));
+    times.push(this.collideCorner(grid, left, up));
+    times.push(this.collideCorner(grid, right, up));
   
     const valid = times.filter(t => t !== null);
     if (valid.length === 0) return null;
