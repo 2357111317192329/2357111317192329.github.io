@@ -54,6 +54,69 @@ class ball {
       }
     }
   }
+  function collideVertical(xEdge) {
+    if (this.vx === 0) return null;
+  
+    const t = (xEdge - this.x + Math.sign(this.vx) * this.r) / this.vx;
+    if (t < 0 || t > 1) return null;
+  
+    const y = this.y + this.vy * t;
+    if (y >= grid.y && y <= grid.y + grid.h) return t;
+  
+    return null;
+  }
+  function collideHorizontal(yEdge) {
+    if (this.vy === 0) return null;
+  
+    const t = (yEdge - this.y + Math.sign(this.vy) * this.r) / this.vy;
+    if (t < 0 || t > 1) return null;
+  
+    const x = this.x + this.vx * t;
+    if (x >= grid.x && x <= grid.x + grid.l) return t;
+  
+    return null;
+  }
+  function collideCorner(cx, cy) {
+    const dx = this.vx;
+    const dy = this.vy;
+  
+    const fx = this.x - cx;
+    const fy = this.y - cy;
+  
+    const a = dx*dx + dy*dy;
+    const b = 2*(fx*dx + fy*dy);
+    const c = fx*fx + fy*fy - this.r*this.r;
+  
+    const disc = b*b - 4*a*c;
+    if (disc < 0) return null;
+  
+    const sqrtD = Math.sqrt(disc);
+    const t1 = (-b - sqrtD) / (2*a);
+    const t2 = (-b + sqrtD) / (2*a);
+  
+    if (t1 >= 0 && t1 <= 1) return t1;
+    if (t2 >= 0 && t2 <= 1) return t2;
+  
+    return null;
+  }
+  checkCollision(grid) {
+    const times = [];
+  
+    times.push(collideVertical.call(this, grid.x));
+    times.push(collideVertical.call(this, grid.x + grid.l));
+    times.push(collideHorizontal.call(this, grid.y));
+    times.push(collideHorizontal.call(this, grid.y + grid.h));
+  
+    times.push(collideCorner.call(this, grid.x, grid.y));
+    times.push(collideCorner.call(this, grid.x + grid.l, grid.y));
+    times.push(collideCorner.call(this, grid.x, grid.y + grid.h));
+    times.push(collideCorner.call(this, grid.x + grid.l, grid.y + grid.h));
+  
+    const valid = times.filter(t => t !== null);
+    if (valid.length === 0) return null;
+  
+    return Math.min(...valid);
+  }
   update() {
     this.gravity();
     this.x=this.vx+this.x;
