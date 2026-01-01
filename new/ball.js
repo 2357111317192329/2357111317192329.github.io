@@ -76,7 +76,7 @@ class ball {
   
     return null;
   }
-  function collideCorner(cx, cy) {
+  collideCorner(cx, cy) {
     const dx = this.vx;
     const dy = this.vy;
   
